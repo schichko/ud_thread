@@ -94,7 +94,6 @@ int t_create(void (*fct)(int), int id, int pri)
    temp->thread_context->uc_link = running->thread_context; 
   makecontext(temp->thread_context, (void (*)(void)) fct, 1, id);
   if(ready == NULL){
-    printf("HERE");
     ready = temp;
   }
   else{
@@ -254,7 +253,7 @@ int mbox_create(mbox **mb){
 }
 
 void mbox_deposit (mbox *mb, char *msg,int len){
-  
+
 }
 
 void mbox_withdraw(mbox *mb, char *msg, int *len){

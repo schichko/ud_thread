@@ -70,6 +70,12 @@ test10: test10.o t_lib.a Makefile
 3test: 3test.o t_lib.a Makefile
 	${CC} ${CFLAGS} 3test.o t_lib.a -o 3test
 
+test06.o: test06.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c test06.c
+
+test06: test06.o t_lib.a Makefile
+	${CC} ${CFLAGS} test06.o t_lib.a -o test06
+
 
 
 clean:
