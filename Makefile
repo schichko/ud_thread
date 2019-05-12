@@ -52,5 +52,25 @@ test01a.o: test01a.c ud_thread.h Makefile
 test01a: test01a.o t_lib.a Makefile
 	${CC} ${CFLAGS} test01a.o t_lib.a -o test01a
 
+test03.o: test03.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c test03.c
+
+test03: test03.o t_lib.a Makefile
+	${CC} ${CFLAGS} test03.o t_lib.a -o test03
+
+test10.o: test10.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c test10.c
+
+test10: test10.o t_lib.a Makefile
+	${CC} ${CFLAGS} test10.o t_lib.a -o test10
+
+3test.o: 3test.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c 3test.c
+
+3test: 3test.o t_lib.a Makefile
+	${CC} ${CFLAGS} 3test.o t_lib.a -o 3test
+
+
+
 clean:
 	rm -f t_lib.a ${EXECS} ${LIBOBJS} ${TSTOBJS} 
