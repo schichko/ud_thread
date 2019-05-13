@@ -27,6 +27,8 @@ struct messageNode{
   struct  messageNode *next;  
 };
 
+typedef struct messageNode messageNode;
+
 typedef struct 
 {
   struct messageNode *msg;
@@ -253,13 +255,68 @@ int mbox_create(mbox **mb){
 }
 
 void mbox_deposit (mbox *mb, char *msg,int len){
+  char *newString = (char *) malloc(len*sizeof(char));
+  strcpy(newString,msg);
+  messageNode *newMSG = (messageNode*)(malloc(sizeof(messageNode)));
+  newMSG->message = newString;
+  newMSG->len = len;
+  newMSG->sender = 0;
+  newMSG->receiver = 0;
+  newMSG->next = NULL;
 
+
+  messageNode *temp;
+  temp = mb->msg;
+  if(temp == NULL){
+    mb->msg = newMSG;
+  }
+  else
+  {
+    while(temp->next != NULL){
+      temp = temp->next;
+    }
+    temp->next = newMSG;
+  }
 }
 
 void mbox_withdraw(mbox *mb, char *msg, int *len){
+  messageNode *temp;
+  temp = mb->msg;
+  messageNode *temp2;
+  if(temp != NULL){
+    if(temp->next == NULL){
+      *len = 0;
+    }
+    else{
+      temp2 = temp->next;
+      mb->msg = temp2;
+      temp->next = NULL;
+    }
+    
+
+    if(temp == NULL){ //mailbox is empty
+      len = 0;
+    }
+    else{
+    fflush(stdout);
+
+
+    strcpy(msg,temp->message);
+    *len = (temp->len);
+    free(temp);
+    }
+  }
+}
+
+void send(int tid, char *msg, int len){
+
+}
+
+void receive(int *tid, char *msg, int *len){
 
 }
 
 void mbox_destroy(mbox **mb){
-
+  messageNode *temp;
+  free(*mb);
 }

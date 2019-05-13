@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ud_thread.h"
+#include <string.h>
 
 mbox *mb;
 char *msg[2] = {"hello world...", "bye, bye"};
