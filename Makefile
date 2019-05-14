@@ -76,6 +76,23 @@ test06.o: test06.c ud_thread.h Makefile
 test06: test06.o t_lib.a Makefile
 	${CC} ${CFLAGS} test06.o t_lib.a -o test06
 
+test05.o: test05.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c test05.c
+
+test05: test05.o t_lib.a Makefile
+	${CC} ${CFLAGS} test05.o t_lib.a -o test05
+
+test08.o: test08.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c test08.c
+
+test08: test08.o t_lib.a Makefile
+	${CC} ${CFLAGS} test08.o t_lib.a -o test08
+
+SenzerSpicerMailbox.o: SenzerSpicerMailbox.c ud_thread.h Makefile
+	${CC} ${CFLAGS} -c SenzerSpicerMailbox.c
+
+SenzerSpicerMailbox: SenzerSpicerMailbox.o t_lib.a Makefile
+	${CC} ${CFLAGS} SenzerSpicerMailbox.o t_lib.a -o SenzerSpicerMailbox
 
 
 clean:
