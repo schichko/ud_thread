@@ -305,7 +305,7 @@ void mbox_withdraw(mbox *mb, char *msg, int *len){  //The code for withdrawing f
 
       strcpy(msg,temp->message);  //Otherwise we move the message over
       *len = (temp->len); //Move the length over
-      free(temp); //And free the temp variable
+      //free(temp); //And free the temp variable
     }
   }
 }
